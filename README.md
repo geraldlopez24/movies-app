@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Ruby Version
+- Ruby 3.0.1
 
-Things you may want to cover:
+## System Dependencies
+- PostgreSQL database
 
-* Ruby version
+## Configuration
+- Configure `database.yml` with your actual PostgreSQL username and password to connect.
 
-* System dependencies
+## Database Setup
+- Run the following commands to create and set up the database:
+  ```bash
+  rails db:create
+  psql -U postgres -d movies_app -f CreateDB.sql
+  psql -U postgres -d movies_app -f InsertsDB.sql
 
-* Configuration
+## Running the Application
+To start the application, run:
+  ```bash
+  rails s
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## See the app
+http://localhost:3000/movies
