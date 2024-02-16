@@ -21,5 +21,6 @@ To start the application, run:
   ```bash
   rails s
 
+
 ## See the app
-http://localhost:3000/movies
+- http://localhost:3000/movies
