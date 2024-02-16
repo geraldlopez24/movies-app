@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: postgres
+  password: root
+  schema_search_path: 'movies'
+
+development:
+  <<: *default
+  database: movies_app
+test:
+  <<: *default
+  database: movies_app_test
+production:
+  <<: *default
+  database: smart_select_production
+  username: smart_select
+  password: <%= ENV["SMART_SELECT_DATABASE_PASSWORD"] %>

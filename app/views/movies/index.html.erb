@@ -1,0 +1,43 @@
+<!-- app/views/movies/index.html.erb -->
+<div class="movie-container">
+  <!-- Header box -->
+  <div class="header-box">
+    <h1>List of Movies</h1>
+  </div>
+  <!-- Search box -->
+  <div class="search-box">
+    <!-- Add your search input field here -->
+    <input type="text" placeholder="Search...">
+    <button type="button">Search</button>
+  </div>
+
+  <!-- Movie list -->
+  <div class="movie-list" >
+    <% @movies.each do |movie| %>
+      <div class="movie-box"  onclick="window.location='<%= movie_path(movie) %>'">
+        <div class="movie-image">
+          <!-- Placeholder for movie image -->
+          <img src="placeholder_image.jpg" alt="Movie Image">
+        </div>
+        <div class="movie-details">
+          <h2><%= movie.title %></h2>
+          <ul class="details-list">
+            <li><strong>Genres:</strong> <%= movie.genres.pluck(:genre_name).join(', ') %></li>
+            <li><strong>Languages:</strong> <%= movie.languages.pluck(:language_name).join(', ') %></li>
+            <li><strong>Keywords:</strong>
+              <div class="keyword-boxes">
+                <% movie.keywords.each do |keyword| %>
+                  <span class="keyword-box"><%= keyword.keyword_name %></span>
+                <% end %>
+              </div>
+            </li>
+          </ul>
+          <ul class="company-list">
+            <li><strong>Movie Company:</strong> <%= movie.production_companies.pluck(:company_name).join(', ') %></li>
+            <!-- Add more li elements for additional details if needed -->
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

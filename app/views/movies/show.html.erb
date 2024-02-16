@@ -1,0 +1,41 @@
+<!-- app/views/movies/show.html.erb -->
+<div class="movie-details-container">
+  <div class="movie-image">
+    <!-- Placeholder for movie image -->
+    <img src="placeholder_image.jpg" alt="Movie Image">
+  </div>
+  <div class="movie-details">
+    <h2><%= @movie.title %></h2>
+    <div class="details-info">
+      <div class="details-group">
+        <p><strong>Genres:</strong></p>
+        <ul class="details-list">
+          <% @movie.genres.each do |genre| %>
+            <li><%= genre.genre_name %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="details-group">
+        <p><strong>Languages:</strong></p>
+        <ul class="details-list">
+          <% @movie.languages.each do |language| %>
+            <li><%= language.language_name %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="details-group">
+      <p><strong>Keywords:</strong></p>
+      <div class="keyword-boxes">
+        <% @movie.keywords.each do |keyword| %>
+          <span class="keyword-box"><%= keyword.keyword_name %></span>
+        <% end %>
+      </div>
+    </div>
+    <div class="details-group">
+      <p><strong>Movie Company:</strong></p>
+      <p><%= @movie.production_companies.pluck(:company_name).join(', ') %></p>
+    </div>
+    <!-- Add more details as needed -->
+  </div>
+</div>
